@@ -4,14 +4,11 @@
   "description": "",
   "main": "bin/index.js",
   "scripts": {
-    "start" : "build /bin/index.js",
+    "start" : "npm run build && node .",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "bin":{
-    "hello": "./bin/index.js"
-  }
+  "license": "ISC"
 }
