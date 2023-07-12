@@ -1,0 +1,17 @@
+{
+  "name": "crud-_cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "start" : "build /bin/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bin":{
+    "hello": "./bin/index.js"
+  }
+}
