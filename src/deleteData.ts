@@ -1,12 +1,9 @@
 import inquirer from "inquirer"
+import fs from 'fs'
 import { IInfo } from "./addData"
 import { fileCheck } from "./dbFileCheck"
 
-
-export const getData = async():Promise<void> =>{
-
-try {
-    
+export const deleteData = async ():Promise<void> =>{
     const info:IInfo[]| void = fileCheck()
 
     const data:IInfo[] = info as IInfo[]
@@ -19,12 +16,12 @@ try {
         }
       ])
 
+      const remainingData = data.filter(singleData => singleData.id !== answer.id)
+      const stringData  = JSON.stringify(remainingData)
+      fs.writeFileSync('db.json', stringData)
+      ;
+    
 
-      const singleData = data.filter(singleData => singleData.id === answer.id)
 
-      console.log(singleData);
-} catch (error) {
-    console.log("internal sever error:", error)
-}
 
 }
