@@ -1,14 +1,15 @@
 import inquirer from "inquirer";
 import fs from "fs";
 import { v4 as uuidv4 } from "uuid";
+import { fileCheck } from "./dbFileCheck";
 
-enum Adult{
+export enum Adult{
     y= "Adult",
     n = "minor"
 }
 
 
-interface IInfo{
+export interface IInfo{
     id?:number;
     name:string;
     phone:number
@@ -20,8 +21,8 @@ interface IInfo{
 
     
  const addData = async ():Promise<void>=>{
-
-    const info: IInfo[] = []
+    const data = fileCheck()
+    const info: IInfo[] = data as IInfo[]
     
     try {
     const answers = await inquirer.prompt([
@@ -50,11 +51,7 @@ interface IInfo{
         id: uuidv4(),
         ...answers
       }
-
-      const file = fs.readFileSync('db.json')
-      const infoo: IInfo[] = JSON.parse(file.toString()),
-      info = infoo
-      
+            
       info.push(data)
 
 
