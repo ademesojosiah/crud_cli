@@ -4,11 +4,18 @@
   "description": "",
   "main": "bin/index.js",
   "scripts": {
-    "start" : "npm run build && node .",
+    "start": "npm run build && node .",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.7",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.2"
+  }
 }
