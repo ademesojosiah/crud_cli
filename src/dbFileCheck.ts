@@ -1,17 +1,17 @@
 import fs from "fs";
-import {exit,argv0} from "process"
+import {exit} from "process"
+import { json } from "stream/consumers";
 
 
 
 export const fileCheck = ():void =>{
-    console.log(argv0)
     if(!fs.existsSync('db.json'))
         return console.log("file does not exist ");
         // exit(1);
 
-let data:string[]|string;
+let data:string[];
 const info:Buffer = fs.readFileSync('db.json')
-data = info.toString()
+data = JSON.parse(info.toString())
 
 console.log(data)
 

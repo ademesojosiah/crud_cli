@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "bin/index.js",
+  "type": "commonjs",
   "scripts": {
     "start": "npm run build && node .",
     "build": "tsc",
@@ -12,10 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "inquirer": "^9.2.7",
+    "inquirer": "^8.0.0",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2"
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^20.4.2",
+    "@types/uuid": "^9.0.2"
   }
 }
