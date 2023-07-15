@@ -17,7 +17,7 @@ const options: any = yargs
 .argv;
 
 
-const param:string|null = options.name ? options.name : null
+const param:string|null = options.todo ? options.todo : null
 
 
 
