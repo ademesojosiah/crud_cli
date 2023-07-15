@@ -10,7 +10,7 @@ export enum Adult{
 
 
 export interface IInfo{
-    id?:string;
+    id?:number;
     name:string;
     phone:number
     age:Adult;
@@ -25,42 +25,44 @@ export interface IInfo{
     const info: IInfo[] = data as IInfo[]
     
     try {
-    const answers = await inquirer.prompt([
+    const idAnswers = await inquirer.prompt([
         {
           type: "input",
-          name: "name",
-          message: "What's your name?",
-        },
-        {
-          type: "number",
-          name: "phone",
-          message: "What's your phone?",
-        },
-        {
-          type: "list",
-          name: "age",
-          message: "Are you an adult?",
-          choices: [
-            { name: "Y", value: "Adult" },
-            { name: "N", value: "Minor" },
-          ],
+          name: "id",
+          message: "your id?",
         },
       ]);
 
-      const newData:IInfo = {
-        id: uuidv4(),
-        ...answers
-      }
+    const updateAnswers = await inquirer.prompt([
+      {
+        type: "input",
+        name: "id",
+        message: "What's your name?",
+      },
+      {
+        type: "number",
+        name: "phone",
+        message: "What's your phone?",
+      },
+      {
+        type: "list",
+        name: "age",
+        message: "Are you an adult?",
+        choices: [
+          { name: "Y", value: "Adult" },
+          { name: "N", value: "Minor" },
+        ],
+      },
+    ]);
+
             
-      info.push(newData)
+      info.push()
 
 
       
       const stringData  = JSON.stringify(info)
        fs.writeFileSync('db.json', stringData)
-
-       console.log(newData) 
-   
+       
 
 
 
