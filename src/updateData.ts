@@ -20,7 +20,7 @@ export interface IInfo{
 
 
     
- const addData = async ():Promise<void>=>{
+ const updateData = async ():Promise<void>=>{
     const data = fileCheck()
     const info: IInfo[] = data as IInfo[]
     
@@ -33,10 +33,14 @@ export interface IInfo{
         },
       ]);
 
+      const index = info.findIndex(inf => inf.id === idAnswers.id)
+
+      if(index === -1)console.log("file does not exist ")
+
     const updateAnswers = await inquirer.prompt([
       {
         type: "input",
-        name: "id",
+        name: "name",
         message: "What's your name?",
       },
       {
@@ -55,8 +59,18 @@ export interface IInfo{
       },
     ]);
 
+
+
             
-      info.push()
+
+
+     const updatedAnswers ={
+        id:idAnswers.id,
+        ...updateAnswers
+      }
+
+      info[index] = { ...info[index],...updatedAnswers}
+
 
 
       
@@ -72,4 +86,4 @@ export interface IInfo{
     }
 
 
-export default addData
+export default updateData
